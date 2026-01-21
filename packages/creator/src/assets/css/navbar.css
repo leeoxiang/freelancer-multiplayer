@@ -1,0 +1,100 @@
+.navbar {
+  margin-bottom: 0;
+  border-bottom: none;
+  position: relative;
+  padding: 0;
+  width: 100%;
+  box-sizing: content-box;
+  z-index: 20;
+  background: linear-gradient(180deg, #696969 0%, #424242 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-color: transparent;
+  height: 64px;
+}
+.navbar .container {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 100%;
+  background-color: transparent;
+  transition: background-color .25s ease;
+  width: 100%;
+  padding: 0;
+  display: block;
+  max-width: 100%!important;
+}
+.navbar .container .navbar-menu {
+  position: relative;
+  display: flex;
+}
+.navbar .container .navbar-menu div {
+  display: inline;
+}
+.navbar .container .navbar-menu .secondary-menu {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+.navbar .container .navbar-menu .right-menu-container {
+  margin-top: 23px;
+  margin-left: auto;
+}
+.navbar .container .item {
+  text-shadow: 0 0 0.2em rgba(0,0,0,.5);
+  font-weight: 300;
+  color: white;
+  border-radius: 6px;
+  text-transform: uppercase;
+  padding: 0;
+  font-size: 20px;
+  line-height: 23px;
+  box-shadow: none;
+  border: none;
+  margin: 0 .85714286em;
+  background: 0 0;
+  transition: color .1s ease;
+  vertical-align: middle;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: Roboto;
+  text-align: center;
+}
+.navbar .container .item.logo-string {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  font-style: italic;
+}
+.right-menu-container .item{
+  font-size: 24px!important;
+}
+.navbar .navbar-menu .secondary-menu {
+  margin: 0;
+}
+.navbar .logo{
+  cursor: pointer;
+  width: 36px;
+  height: 64px;
+  margin-right: -20px;
+  margin-top: 0;
+}
+.accountPicture {
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  margin-top: 12px;
+  border: 2px solid #312936;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.accountPicture.loggedIn {
+  box-shadow: 0px 0px 5px #c4005d;
+}
+.user-logo{
+  padding-right: 30px;
+}
