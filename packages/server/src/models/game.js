@@ -1,5 +1,6 @@
 const { io } = require("./io");
 const redis = require("./redis");
+const gameLogic = require("./gameLogic");
 
 const start = async (id1, id2) => {
   const [socket1, socket2] = await redis.mget([
@@ -7,9 +8,20 @@ const start = async (id1, id2) => {
     `client:${id2}`,
   ]);
 
+  // Create game state
+  const gameState = gameLogic.createGame(id1, id1, id2);
+
+  // Send start event and initial game state to both players
   await io().to(socket1).emit("start");
+  await io().to(socket1).emit("playerAssigned", id1);
+  await io().to(socket1).emit("gameState", gameState);
+
   await io().to(socket2).emit("start");
+  await io().to(socket2).emit("playerAssigned", id2);
+  await io().to(socket2).emit("gameState", gameState);
+
   console.log(`match started between ${id1} and ${id2}`);
+  console.log("Initial game state created:", gameState);
 };
 
 const disconnect = async (session_id) => {
