@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd packages/client && yarn build",
-  "outputDirectory": "packages/client/dist",
-  "framework": null,
-  "installCommand": "yarn install --frozen-lockfile"
-}
