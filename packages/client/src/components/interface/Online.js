@@ -48,9 +48,11 @@ export default function Online({ start, started }) {
   const connect = useCallback(async () => {
     await refetch();
 
-    const socket = io(window.location.href, { path: "/api/socket.io" });
+    // Connect to the API server (use env variable or current location)
+    const apiUrl = process.env.REACT_APP_API_URL || window.location.origin;
+    const socket = io(apiUrl, { path: "/api/socket.io" });
     set_socket(socket);
-  }, [refetch, set_socket, window.location.href]);
+  }, [refetch, set_socket]);
 
   return (
     <Card elevation={1} className="online_menu">

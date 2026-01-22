@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd packages/client && npm run build",
+  "outputDirectory": "packages/client/dist",
+  "framework": null,
+  "installCommand": "yarn install"
+}
