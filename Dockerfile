@@ -8,10 +8,7 @@ COPY yarn.lock ./
 COPY packages/engine/package*.json ./packages/engine/
 COPY packages/server/package*.json ./packages/server/
 
-# Install yarn globally
-RUN npm install -g yarn
-
-# Install all dependencies
+# Install all dependencies (yarn is already in node:16-slim)
 RUN yarn install --frozen-lockfile
 
 # Copy source code
