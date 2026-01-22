@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd packages/client && yarn build",
+  "buildCommand": "yarn workspace @freelancer-ccg/client build",
   "outputDirectory": "packages/client/dist",
   "framework": null,
-  "installCommand": "yarn install"
+  "installCommand": "yarn install --frozen-lockfile"
 }
