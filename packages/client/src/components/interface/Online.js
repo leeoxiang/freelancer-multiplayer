@@ -12,7 +12,7 @@ export default function Online({ start, started }) {
     manual: true,
   });
   const [socket, set_socket] = useState();
-  const [connected, set_connected] = useState();
+  const [connected, set_connected] = useState(false);
 
   useEffect(() => {
     if (socket) {
@@ -37,11 +37,11 @@ export default function Online({ start, started }) {
     message = <p>
       connection error <Icon icon={IconNames.ERROR} iconSize={20} intent="danger" />
     </p>;
-  } else if (data) {
+  } else if (connected && data) {
     message = <p>
       currently online <Icon icon={IconNames.GLOBE_NETWORK} iconSize={20} intent="success" />
     </p>;
-  } else if (!data) {
+  } else {
     message = <p>currently offline <Icon icon={IconNames.GLOBE_NETWORK} iconSize={20} intent="warning" /></p>;
   }
 
@@ -58,8 +58,8 @@ export default function Online({ start, started }) {
     <Card elevation={1} className="online_menu">
       <div className="online">
         {message}
-        <Button loading={loading} active={data} onClick={(data || loading) ? refetch : connect}>
-          go online
+        <Button loading={loading} active={connected} onClick={connected ? refetch : connect} disabled={loading}>
+          {connected ? "refresh" : "go online"}
         </Button>
       </div>
       {!started && data && connected && (
